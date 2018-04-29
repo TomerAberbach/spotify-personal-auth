@@ -21,6 +21,6 @@ spotifyPersonalAuth.token().then(token => {
 }).then(data =>
     // Plays user's top tracks
     api.play({
-        uris: data['body']['items'].map(item => item['uri'])
+        uris : data['body']['items'].map(item => item['uri'])
     })
 ).catch(console.log);

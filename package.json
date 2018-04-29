@@ -1,6 +1,6 @@
 {
   "name": "spotify-personal-auth",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Spotify authorization code flow implementation for local personal use.",
   "main": "index.js",
   "repository": {

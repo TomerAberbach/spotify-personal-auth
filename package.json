@@ -1,0 +1,13 @@
+{
+  "name": "spotify-personal-auth",
+  "author": "Tomer Aberbach (TomerADev)",
+  "description": "Spotify authorization code flow implementation for local personal use.",
+  "version": "1.0.0",
+  "dependencies": {
+    "http-shutdown": "^1.2.0",
+    "opn": "^5.3.0",
+    "qs": "latest",
+    "request": "^2.85.0",
+    "spotify-web-api-node": "^3.1.0"
+  }
+}

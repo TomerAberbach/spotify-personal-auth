@@ -1,6 +1,6 @@
 {
   "name": "spotify-personal-auth",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Spotify authorization code flow implementation for local personal use.",
   "main": "index.js",
   "repository": {
@@ -9,6 +9,7 @@
   },
   "keywords": ["spotify", "personal", "authentication", "authorization", "web", "api"],
   "author": "Tomer Aberbach <tomeraberbach@gmail.com>",
+  "license" : "MIT",
   "licenses": [
     {
       "type": "MIT",

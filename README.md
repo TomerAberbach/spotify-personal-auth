@@ -1,4 +1,4 @@
-# spotify-personal-auth
+# Spotify Personal Authentication Module
 A Node.js Spotify authorization code flow implementation for local personal use.
 
 ## Example Which Plays Your Top Tracks In Spotify Client

@@ -1,15 +1,22 @@
 {
   "name": "spotify-personal-auth",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Spotify authorization code flow implementation for local personal use.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/TomerADev/spotify-personal-auth.git"
   },
-  "keywords": ["spotify", "personal", "authentication", "authorization", "web", "api"],
+  "keywords": [
+    "spotify",
+    "personal",
+    "authentication",
+    "authorization",
+    "web",
+    "api"
+  ],
   "author": "Tomer Aberbach <tomeraberbach@gmail.com> (http://tomeraberbach.com)",
-  "license" : "MIT",
+  "license": "MIT",
   "licenses": [
     {
       "type": "MIT",
@@ -20,6 +27,7 @@
     "http-shutdown": "^1.2.0",
     "opn": "^5.3.0",
     "qs": "latest",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "spotify-web-api-node": "^3.1.1"
   }
 }

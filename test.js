@@ -1,26 +1,28 @@
-const spotifyPersonalAuth = require('./index'),
-      SpotifyWebApi = require('spotify-web-api-node');
+const auth = require('./index'),
+  SpotifyWebApi = require('spotify-web-api-node')
 
 // Configure module
-spotifyPersonalAuth.config({
-    clientId : 'YOUR_CLIENT_ID', // Replace with your client id
-    clientSecret : 'YOUR_CLIENT_SECRET', // Replace with your client secret
-    scope : ['user-modify-playback-state', 'user-top-read'], // Replace with your array of needed Spotify scopes
-    path : '/path/to/a/tokens.json' // Optional path to file to save tokens (will be created for you)
-});
+auth.config({
+  clientId: 'YOUR_CLIENT_ID', // Replace with your client id
+  clientSecret: 'YOUR_CLIENT_SECRET', // Replace with your client secret
+  scope: ['user-modify-playback-state', 'user-top-read'], // Replace with your array of needed Spotify scopes
+  path: '/path/to/a/tokens.json' // Optional path to file to save tokens (will be created for you)
+})
 
-const api = new SpotifyWebApi();
+const api = new SpotifyWebApi()
 
-// Get token promise (call this again later if the token expires, it will refresh if needed)
-spotifyPersonalAuth.token().then(token => {
-    // Sets api access token
-    api.setAccessToken(token);
+/* Get token promise, the token will refresh if this is called when it has expired,
+ * But you can get the refresh token if you would rather handle it
+ */
+auth.token().then((token, refresh) => {
+  // Sets api access and refresh token
+  api.setAccessToken(token)
+  api.setRefreshToken(refresh)
 
-    // Promise for user's top tracks
-    return api.getMyTopTracks();
+  return api.getMyTopTracks()
 }).then(data =>
-    // Plays user's top tracks
-    api.play({
-        uris : data['body']['items'].map(item => item['uri'])
-    })
-).catch(console.log);
+  // Plays user's top tracks
+  api.play({
+    uris: data['body']['items'].map(item => item['uri'])
+  })
+).catch(console.log)

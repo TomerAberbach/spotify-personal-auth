@@ -149,7 +149,7 @@ function token (params) {
           fs.writeFileSync(opts.path, JSON.stringify(tokens))
         }
 
-        resolve(tokens.token, tokens.refresh)
+        resolve([tokens.token, tokens.refresh])
       } else {
         reject(new Error(res.body))
       }

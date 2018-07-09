@@ -1,6 +1,6 @@
 {
   "name": "spotify-personal-auth",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A Spotify authorization code flow implementation for local personal use.",
   "main": "index.js",
   "repository": {
@@ -27,7 +27,6 @@
     "http-shutdown": "^1.2.0",
     "opn": "^5.3.0",
     "qs": "latest",
-    "request": "^2.85.0",
-    "spotify-web-api-node": "^3.1.1"
+    "request": "^2.85.0"
   }
 }

@@ -50,7 +50,7 @@ module.exports.config = obj => {
  */
 module.exports.token = () => {
   // Checks if access and refresh tokens have been obtained and the access token is not expired
-  if (tokens && (!expires && new Date().getTime() > expires)) return Promise.resolve(tokens.token)
+  if (tokens && (!expires && new Date().getTime() > expires)) return Promise.resolve([tokens.token, tokens.refresh])
 
   // Checks if access and refresh tokens have not been obtained, but there are tokens at a specified path
   if (!tokens && opts.path && fs.existsSync(opts.path)) {

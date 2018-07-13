@@ -46,7 +46,7 @@ module.exports.config = obj => {
 
 /**
  * Gets a Spotify access token.
- * @returns {Promise<string>}
+ * @returns {Promise<string[]>}
  */
 module.exports.token = () => {
   // Checks if access and refresh tokens have been obtained and the access token is not expired

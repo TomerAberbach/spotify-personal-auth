@@ -1,6 +1,6 @@
 {
   "name": "spotify-personal-auth",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": "Tomer Aberbach <tomeraberbach@gmail.com> (https://tomeraberba.ch)",
   "description": "A Spotify authorization code flow implementation for local personal use.",
   "keywords": [

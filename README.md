@@ -1,14 +1,22 @@
-# Spotify Personal Authentication Module
-A Node.js Spotify authorization code flow implementation for local personal use.
+# Spotify Personal Auth
 
-[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+[![NPM version](https://img.shields.io/npm/v/spotify-personal-auth.svg)](https://www.npmjs.com/package/spotify-personal-auth) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTomerADev%2Fspotify-personal-auth.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTomerADev%2Fspotify-personal-auth?ref=badge_shield) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+> A Spotify authorization code flow implementation for local personal use.
 
-## Example Which Plays Your Top Tracks In Spotify Client
-```javascript
-const auth = require('spotify-personal-auth'),
-  SpotifyWebApi = require('spotify-web-api-node')
+## Install
+
+Install with [npm](https://www.npmjs.com):
+
+```sh
+$ npm i spotify-personal-auth --save
+```
+
+## Usage
+
+```js
+const auth = require('spotify-personal-auth')
+const SpotifyWebApi = require('spotify-web-api-node')
 
 // Configure module
 auth.config({
@@ -37,3 +45,29 @@ auth.token().then(([token, refresh]) => {
   })
 ).catch(console.log)
 ```
+
+## Contributing
+
+Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/TomerADev/spotify-personal-auth/issues/new).
+
+## Running Tests
+
+Install dev dependencies:
+
+```sh
+$ npm i -d && npm test
+```
+
+## Author
+
+**Tomer Aberbach**
+
+* [Github](https://github.com/TomerADev)
+* [NPM](https://www.npmjs.com/~tomeraberbach)
+* [LinkedIn](https://www.linkedin.com/in/tomer-a)
+* [Website](https://tomeraberba.ch)
+
+## License
+
+Copyright © 2018 [Tomer Aberbach](https://github.com/TomerADev)
+Released under the [MIT license](https://github.com/TomerADev/spotify-personal-auth/blob/master/LICENSE).

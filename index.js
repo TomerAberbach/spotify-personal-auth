@@ -1,10 +1,10 @@
-const fs = require('fs'),
-  http = require('http'),
-  httpShutdown = require('http-shutdown'),
-  url = require('url'),
-  qs = require('qs'),
-  opn = require('opn'),
-  request = require('request')
+const fs = require('fs')
+const http = require('http')
+const httpShutdown = require('http-shutdown')
+const url = require('url')
+const qs = require('qs')
+const opn = require('opn')
+const request = require('request')
 
 /**
  * port: Port to listen on for authorization (required, default: 8888).
@@ -20,11 +20,11 @@ const opts = {
   clientId: undefined,
   clientSecret: undefined,
   scope: [],
-  path: undefined,
+  path: undefined
 }
 
-let tokens,
-  expires
+let tokens
+let expires
 
 /**
  * Configures the module with the following non-undefined properties found in {@param obj}:
@@ -85,9 +85,9 @@ function authorize () {
     }))
 
     // Server listens on port
-    server.listen(opts.port, 'localhost', err => err ?
-      console.log(err) :
-      console.log('Listening on localhost:' + opts.port + '...')
+    server.listen(opts.port, 'localhost', err => err
+      ? console.log(err)
+      : console.log('Listening on localhost:' + opts.port + '...')
     )
 
     // Opens the spotify authorization URL
@@ -117,11 +117,6 @@ function refresh () {
   })
 }
 
-/**
- *
- * @param params
- * @returns {Promise<string>}
- */
 function token (params) {
   return new Promise((resolve, reject) => {
     request({
@@ -140,7 +135,7 @@ function token (params) {
 
         tokens = {
           token: body['access_token'],
-          refresh: body['refresh_token'] ? body['refresh_token'] : tokens.refresh,
+          refresh: body['refresh_token'] ? body['refresh_token'] : tokens.refresh
         }
 
         expires = new Date().getTime() + body['expires_in']

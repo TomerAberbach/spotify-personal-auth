@@ -1,6 +1,6 @@
 # Spotify Personal Auth
 
-[![NPM version](https://img.shields.io/npm/v/spotify-personal-auth.svg)](https://www.npmjs.com/package/spotify-personal-auth) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FTomerADev%2Fspotify-personal-auth.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FTomerADev%2Fspotify-personal-auth?ref=badge_shield) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM version](https://img.shields.io/npm/v/spotify-personal-auth.svg)](https://www.npmjs.com/package/spotify-personal-auth) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 > A Spotify authorization code flow implementation for local personal use.
 

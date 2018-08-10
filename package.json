@@ -11,13 +11,13 @@
     "web",
     "api"
   ],
-  "homepage": "https://github.com/TomerADev/spotify-personal-auth",
+  "homepage": "https://github.com/TomerAberbach/spotify-personal-auth",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TomerADev/spotify-personal-auth.git"
+    "url": "git+https://github.com/TomerAberbach/spotify-personal-auth.git"
   },
   "bugs": {
-    "url": "https://github.com/TomerADev/spotify-personal-auth/issues"
+    "url": "https://github.com/TomerAberbach/spotify-personal-auth/issues"
   },
   "license": "MIT",
   "files": [

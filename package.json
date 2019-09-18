@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "http-shutdown": "^1.2.0",
-    "opn": "^5.3.0",
+    "opn": "^6.0.0",
     "qs": "latest",
     "request": "^2.85.0"
   },

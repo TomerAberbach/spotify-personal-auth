@@ -72,15 +72,15 @@ function authorize () {
     // Creates a server with shutdown functionality
     const server = httpShutdown(http.createServer((req, res) => {
       // Gets query parameters
-      const data = url.parse(req.url, true).query
+      const data = url.URL(req.url, true).query
 
       // Checks if the authentication code is in the query parameters
-      if (data['code']) {
-        res.writeHeader(200, {'Content-Type': 'text/html'})
+      if (data.code) {
+        res.writeHeader(200, { 'Content-Type': 'text/html' })
         res.write('<html><head></head><body><script>close();</script></body></html>')
 
         // Will shut down server and get the authorization code
-        res.end(() => server.shutdown(() => resolve(data['code'])))
+        res.end(() => server.shutdown(() => resolve(data.code)))
       }
     }))
 
@@ -96,7 +96,7 @@ function authorize () {
       response_type: 'code',
       redirect_uri: callback(),
       scope: opts.scope.join(' ')
-    }), {wait: false})
+    }), { wait: false })
   }).then(code => token({
     grant_type: 'authorization_code',
     code: code,
@@ -123,7 +123,7 @@ function token (params) {
       url: 'https://accounts.spotify.com/api/token',
       method: 'POST',
       headers: {
-        'Authorization': 'Basic ' + Buffer.from(opts.clientId + ':' + opts.clientSecret, 'utf8').toString('base64'),
+        Authorization: 'Basic ' + Buffer.from(opts.clientId + ':' + opts.clientSecret, 'utf8').toString('base64'),
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       qs: params
@@ -134,11 +134,11 @@ function token (params) {
         body = JSON.parse(body)
 
         tokens = {
-          token: body['access_token'],
-          refresh: body['refresh_token'] ? body['refresh_token'] : tokens.refresh
+          token: body.access_token,
+          refresh: body.refresh_token ? body.refresh_token : tokens.refresh
         }
 
-        expires = new Date().getTime() + body['expires_in']
+        expires = new Date().getTime() + body.expires_in
 
         if (opts.path) {
           fs.writeFileSync(opts.path, JSON.stringify(tokens))

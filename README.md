@@ -69,5 +69,5 @@ $ npm i -d && npm test
 
 ## License
 
-Copyright © 2018 [Tomer Aberbach](https://github.com/TomerAberbach)
+Copyright © 2019 [Tomer Aberbach](https://github.com/TomerAberbach)
 Released under the [MIT license](https://github.com/TomerAberbach/spotify-personal-auth/blob/master/LICENSE).

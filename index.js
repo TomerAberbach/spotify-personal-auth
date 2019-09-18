@@ -1,7 +1,6 @@
 const fs = require('fs')
 const http = require('http')
 const httpShutdown = require('http-shutdown')
-const url = require('url')
 const qs = require('qs')
 const opn = require('opn')
 const request = require('request')
@@ -72,31 +71,31 @@ function authorize () {
     // Creates a server with shutdown functionality
     const server = httpShutdown(http.createServer((req, res) => {
       // Gets query parameters
-      const data = url.URL(req.url, true).query
+      const code = new URL(`localhost:${opts.port}${req.url}`).searchParams.get('code')
 
       // Checks if the authentication code is in the query parameters
-      if (data.code) {
+      if (code) {
         res.writeHeader(200, { 'Content-Type': 'text/html' })
         res.write('<html><head></head><body><script>close();</script></body></html>')
 
         // Will shut down server and get the authorization code
-        res.end(() => server.shutdown(() => resolve(data.code)))
+        res.end(() => server.shutdown(() => resolve(code)))
       }
     }))
 
     // Server listens on port
     server.listen(opts.port, 'localhost', err => err
       ? console.log(err)
-      : console.log('Listening on localhost:' + opts.port + '...')
+      : console.log(`Listening on localhost:${opts.port}...`)
     )
 
     // Opens the spotify authorization URL
-    opn('https://accounts.spotify.com/authorize?' + qs.stringify({
+    opn(`https://accounts.spotify.com/authorize?${qs.stringify({
       client_id: opts.clientId,
       response_type: 'code',
       redirect_uri: callback(),
       scope: opts.scope.join(' ')
-    }), { wait: false })
+    })}`, { wait: false })
   }).then(code => token({
     grant_type: 'authorization_code',
     code: code,
@@ -153,5 +152,5 @@ function token (params) {
 }
 
 function callback () {
-  return 'http://localhost:' + opts.port + '/callback'
+  return `http://localhost:${opts.port}/callback`
 }
